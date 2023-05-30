@@ -1,4 +1,4 @@
-class Media:
+class Media():
     def __init__(self, name, year):
         self._name = name.title()
         self.year = year
@@ -41,18 +41,16 @@ class Show(Media):
         return f'Title: {self._name} | Year: {self.year} | Seasons: {self.seasons} | Likes: {self.likes}'
 
 
-class Playlist:
+class Playlist():
     def __init__(self, name, programs):
         self.name = name
         self._programs = programs
 
-    @property
-    def list(self):
-        return self._programs
-
-    @property
-    def size(self):
+    def __len__(self):
         return len(self._programs)
+
+    def __getitem__(self, item):
+        return self._programs[item]
 
     def duration(self):
         movie_duration = 0
@@ -84,9 +82,9 @@ weekend_playlist = Playlist('weekend playlist', movies_and_shows)
 
 print('------------------------------------------------------------------------------------')
 print('------------------------------------------------------------------------------------')
-print(f'Playlist length: {weekend_playlist.size}, Duration: {weekend_playlist.duration()}')
+print(f'Playlist length: {len(weekend_playlist)}, Duration: {weekend_playlist.duration()}')
 print('------------------------------------------------------------------------------------')
-for program in weekend_playlist.list:
+for program in weekend_playlist:
     print(program)
 print('------------------------------------------------------------------------------------')
 print('------------------------------------------------------------------------------------')
