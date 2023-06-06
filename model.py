@@ -1,4 +1,4 @@
-class Media():
+class Media:
     def __init__(self, name, year):
         self._name = name.title()
         self.year = year
@@ -41,7 +41,7 @@ class Show(Media):
         return f'Title: {self._name} | Year: {self.year} | Seasons: {self.seasons} | Likes: {self.likes}'
 
 
-class Playlist():
+class Playlist:
     def __init__(self, name, programs):
         self.name = name
         self._programs = programs
